@@ -3,24 +3,29 @@ import { Canvas } from '@react-three/fiber';
 import {Suspense,useRef, useState} from "react";
 import Fox from '../models/Fox';
 import Loader from '../components/Loader';
+import useAlert from "../hooks/useAlert";
+import Alert from "../components/Alert";
+
 
 const Contact = () => {
   const formRef = useRef(null);
   const [form, setForm] = useState ({name: '', email: '', message: ''})
   const [isLoading, setIsLoading] = useState(false);
+  const [currentAnimation, setCurrentAnimation] = useState("idle");
+  const {alert, showAlert, hideAlert} = useAlert();
 
 
 
-  const handleFocus = (e) => {};
-  const handleBlur = (e) => {};
-
-
-  const handleChange = (e) => {
-    setForm({...form, [e.target.name]: e.target.value});
+  const handleFocus = () => setCurrentAnimation("walk");
+  const handleBlur = () => setCurrentAnimation("idle");
+  const handleChange = ({ target: { name, value } }) => {
+    setForm({ ...form, [name]: value });
   };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     setIsLoading(true);
+    setCurrentAnimation("hit");
 
     emailjs.send(
       import.meta.env.VITE_APP_EMAILJS_SERVICE_ID,
@@ -38,32 +43,38 @@ const Contact = () => {
     .then(
       ()=> {
       setIsLoading(false);
-    //   showAlert({
-    //     show: true,
-    //     text: "Thank you for your message 😃",
-    //     type: "success",
+      showAlert({
+        show: true,
+        text: "Thank you for your message 😃",
+        type: "success",
 
-    // });
-    // setTimeout(() => {
-    //   hideAlert(false);
-    //   setCurrentAnimation("idle");
-    //   setForm({
-    //     name: "",
-    //     email: "",
-    //     message: "",
-    //   });
-    // }, [3000]);
+    });
+    setTimeout(() => {
+      hideAlert(false);
+      setCurrentAnimation("idle");
+      setForm({
+        name: "",
+        email: "",
+        message: "",
+      });
+    }, 3000);
   }
   ).catch((error) => {
     setIsLoading(false);
     console.log(error);
-    // show error message 
+    setCurrentAnimation("idle");
+    showAlert({
+      show: true,
+      text: "Something went wrong 😕",
+      type: "danger",
+    });
   });
 }
 
 
   return (
     <section className='relative flex lg:flex-row flex-col max-container'>
+
       {alert.show && <Alert {...alert} />}
 
       <div className='flex-1 min-w-[50%] flex flex-col'>
@@ -152,6 +163,7 @@ const Contact = () => {
 
           <Suspense fallback={<Loader />}>
             <Fox
+              currentAnimation={currentAnimation}
               position={[0.5, 0.35, 0]}
               rotation={[12.63, -.6, 0]}
               scale={[0.5, 0.5, 0.5]}
