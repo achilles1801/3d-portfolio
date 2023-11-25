@@ -1,26 +1,26 @@
-import React, {Suspense,useRef, useState} from 'react';
-import emailjs from '@emailjs/browser';
+import emailjs from "@emailjs/browser";
+import { Canvas } from '@react-three/fiber';
+import {Suspense,useRef, useState} from "react";
 import Fox from '../models/Fox';
 import Loader from '../components/Loader';
-import { Canvas } from '@react-three/fiber';
 
 const Contact = () => {
   const formRef = useRef(null);
   const [form, setForm] = useState ({name: '', email: '', message: ''})
   const [isLoading, setIsLoading] = useState(false);
-  
 
+
+
+  const handleFocus = (e) => {};
+  const handleBlur = (e) => {};
 
 
   const handleChange = (e) => {
     setForm({...form, [e.target.name]: e.target.value});
   };
-  const handleFocus = () => {};
-  const handleBlur = () => {};
-
   const handleSubmit = (e) => {
     e.preventDefault();
-    setisLoading(true);
+    setIsLoading(true);
 
     emailjs.send(
       import.meta.env.VITE_APP_EMAILJS_SERVICE_ID,
@@ -37,36 +37,29 @@ const Contact = () => {
     )
     .then(
       ()=> {
-      setisLoading(false);
-      showAlert({
-        show: true,
-        text: "Thank you for your message 😃",
-        type: "success",
+      setIsLoading(false);
+    //   showAlert({
+    //     show: true,
+    //     text: "Thank you for your message 😃",
+    //     type: "success",
 
-    });
-    setTimeout(() => {
-      hideAlert(false);
-      setCurrentAnimation("idle");
-      setForm({
-        name: "",
-        email: "",
-        message: "",
-      });
-    }, [3000]);
-  },
-  (error) => {
-    setisLoading(false);
-    console.error(error);
-    setCurrentAnimation("idle");
-
-    showAlert({
-      show: true,
-      text: "I didn't receive your message 😢",
-      type: "danger",
-    });
+    // });
+    // setTimeout(() => {
+    //   hideAlert(false);
+    //   setCurrentAnimation("idle");
+    //   setForm({
+    //     name: "",
+    //     email: "",
+    //     message: "",
+    //   });
+    // }, [3000]);
   }
-);
-  };
+  ).catch((error) => {
+    setIsLoading(false);
+    console.log(error);
+    // show error message 
+  });
+}
 
 
   return (
@@ -169,4 +162,5 @@ const Contact = () => {
     </section>
   );
 };
+
 export default Contact;
