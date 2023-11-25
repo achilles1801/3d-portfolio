@@ -46,7 +46,7 @@ const renderContent = {
         <InfoBox
             text = "Need a Software Engineer? I'm currently looking for new opportunities, my inbox is always open. Whether you have a question or just want to say hi, I'll try my best to get back to you!"
             link = "/contact"
-            btnText={"Get In Touch"}
+            btnText={"Let's Talk"}
         
         />
     ),
@@ -59,4 +59,4 @@ const HomeInfo = ({currentStage}) => {
   return renderContent[currentStage] || null;
 }
 
-export default HomeInfo
+export default HomeInfo;
