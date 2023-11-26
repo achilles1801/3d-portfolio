@@ -14,7 +14,7 @@ const Navbar = () => {
         <NavLink to="/projects" className={({ isActive }) => isActive ? 'text-blue-500' : 'text-black'}>
           Projects
         </NavLink>
-        <a href="https://gtvault-my.sharepoint.com/:w:/g/personal/mkhawaldeh3_gatech_edu/EVYBfKDYqMhPm-ElWW5Mlr0BHdgfAkpD-I6JmLAEAlkyBQ?e=u4GW8E"
+        <a href="https://docs.google.com/document/d/1eldR38UqWWzdSREJf7xxVJcGRgYccR0t/edit?usp=sharing&ouid=106902061766095177899&rtpof=true&sd=true"
          target="_blank" rel="noopener noreferrer" className="resume-link">
           My Resume
         </a>

@@ -106,7 +106,7 @@ export const skills = [
 
 export const experiences = [
     {
-        title: "Director of Affairs",
+        title: "Committee's Director",
         company_name: "MSA (Muslim Student Association)",
         icon: msa,
         iconBg: "#accbe1",
