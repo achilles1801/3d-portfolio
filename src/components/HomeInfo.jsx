@@ -28,7 +28,7 @@ const renderContent = {
     ),
     2: (
         <InfoBox
-            text = "I'm a Software Engineer with a passion for building things that live on the internet."
+            text = "A Computer Science student at Georgia Tech who loves to build things."
             link = "/about"
             btnText={"More About Me"}
         
@@ -36,7 +36,7 @@ const renderContent = {
     ),
     3: (
         <InfoBox
-            text = "Led multiple projects to success over the years. Curious about the impact?"
+            text = "I've worked on a wide range of projects, from building websites to creating mobile apps. Want to check them out?"
             link = "/projects"
             btnText={"Visit My Projects"}
         
