@@ -15,11 +15,9 @@ const Projects = () => {
       </h1>
 
       <p className='text-slate-500 mt-2 leading-relaxed'>
-        I've embarked on numerous projects throughout the years, but these are
-        the ones I hold closest to my heart. Many of them are open-source, so if
-        you come across something that piques your interest, feel free to
-        explore the codebase and contribute your ideas for further enhancements.
-        Your collaboration is highly valued!
+      In my journey as a Computer Science student at Georgia Tech,
+       I've embarked on various projects that showcase not only my technical skills but also my creativity and passion for solving real-world problems. From developing engaging mobile games to creating dynamic web applications and efficient software solutions, each project reflects my dedication to leveraging technology in innovative ways. Below is a selection of my work,
+       demonstrating my abilities in different areas of computer science and software development.
       </p>
 
       <div className='flex flex-wrap my-20 gap-16'>

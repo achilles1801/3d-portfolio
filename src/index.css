@@ -181,3 +181,22 @@ body:has(.card[data-color="green"]:hover) {
   box-shadow: 0.6vmin 0.6vmin #fff, 1vmin 1vmin #d2e4ff, 1vmin 1vmin #d2e4ff,
     0.65vmin 1vmin #d2e4ff, 1vmin 0.65vmin #d2e4ff;
 }
+.coursework-entry {
+  width: 60%; /* Increase the width */
+  min-height: 150px; /* Set a minimum height */
+  margin: 10px; /* Adjust margin as needed */
+  padding: 15px; /* Add padding inside the box */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for non-hover state */
+  border-radius: 15px; /* Rounded corners */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.coursework-entry:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px 5px rgba(0, 123, 255, 0.6);
+}
+
+
+
+

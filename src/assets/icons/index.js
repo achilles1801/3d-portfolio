@@ -1,4 +1,10 @@
 import css from './css.svg'
+import books from './books.svg'
+import msa from './msa.svg'
+import matlab from './matlab.svg'
+import java from './java.svg'
+import python from './python.svg'
+import mysql from './mysql.svg'
 import express from './express.svg'
 import git from './git.svg'
 import github from './github.svg'
@@ -26,10 +32,15 @@ import arrow from './arrow.svg'
 import contact from './contact.svg'
 import soundon from './soundon.png'
 import soundoff from './soundoff.png'
+import threejs from './threejs.svg'
 
 export {
+    books,
+    msa,
     css,
     express,
+    threejs,
+    matlab,
     git,
     github,
     html,
@@ -55,5 +66,8 @@ export {
     arrow,
     contact,
     soundon,
-    soundoff
+    soundoff,
+    java,
+    python,
+    mysql
 }

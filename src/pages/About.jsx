@@ -1,5 +1,5 @@
 import React from 'react'
-import { skills, experiences } from '../constants';
+import { skills, experiences,coursework } from '../constants';
 import { VerticalTimeline, VerticalTimelineElement }  from 'react-vertical-timeline-component';
 import 'react-vertical-timeline-component/style.min.css';
 import CTA from '../components/CTA';
@@ -19,7 +19,7 @@ const About = () => {
 
       <div className='mt-5 flex flex-col gap-3 text-slate-500'>
         <p>
-          Software Engineer who loves building products and solving problems.
+          A Computer Science student at Georgia Tech who loves to build things.
         </p>
       </div>
 
@@ -43,11 +43,10 @@ const About = () => {
       </div>
 
       <div className='py-16'>
-        <h3 className='subhead-text'>Work Experience.</h3>
+        <h3 className='subhead-text'>Leadership</h3>
         <div className='mt-5 flex flex-col gap-3 text-slate-500'>
           <p>
-            I've worked with all sorts of companies, leveling up my skills and
-            teaming up with smart people. Here's the rundown:
+            Taking on leadership roles has always been a passion of mine. Fostering a community of like-minded individuals and working together to achieve a common goal is something I find very rewarding.
           </p>
         </div>
 
@@ -102,8 +101,35 @@ const About = () => {
         </div>
       </div>
 
-      <hr className='border-slate-200' />
+      <div className='py-16'>
+  <h3 className='subhead-text'>Coursework</h3>
+  <div className='mt-5 flex flex-col gap-3 text-slate-500'>
+    <p>
+      I'm currently pursuing a Bachelor's degree in Computer Science at Georgia Tech.
+      Here are some of the courses I've taken so far:
+    </p>
+  </div>
+  {coursework.map((course, index) => (
+  <div 
+    key={index} 
+    className={`flex w-full ${index % 2 === 0 ? 'justify-start' : 'justify-end'}`}
+  >
+    <div className='coursework-entry m-4'>
+      <h4 className='text-black text-lg font-semibold'>{course.course}</h4>
+      <p>{course.description}</p>
+      <ul className='list-disc ml-5 space-y-2'>
+        {course.keyTopics.map((topic, idx) => (
+          <li key={idx} className='text-black-500/50 font-normal text-sm'>{topic}</li>
+        ))}
+      </ul>
+    </div>
+  </div>
+))}
+</div>
 
+
+
+      <hr className='border-slate-200' />
       <CTA />
     </section>
   );
